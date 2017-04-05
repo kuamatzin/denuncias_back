@@ -93,6 +93,6 @@ class DenunciaController extends Controller
     {
         $entrada = $request->all();
 
-        Mail::to('kuamatzin@gmail.com')->send(new TestMail);
+        Mail::to('kuamatzin@gmail.com')->send(new TestMail($entrada));
     }
 }

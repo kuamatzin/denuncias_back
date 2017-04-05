@@ -7,8 +7,8 @@
         <title>Document</title>
 </head>
 <body>
-        @foreach($data as $item)
-            {{$item}}
+        @foreach($data as $key => $item)
+            {{$key}}
         @endforeach
 </body>
 </html>

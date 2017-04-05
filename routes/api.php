@@ -17,9 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('hola', function(){
-    return "HOLA";
-});
-
 Route::get('denuncias/image', 'DenunciaController@image');
 Route::resource('denuncias', 'DenunciaController');
