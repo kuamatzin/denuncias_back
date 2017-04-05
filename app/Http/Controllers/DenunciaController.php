@@ -38,9 +38,13 @@ class DenunciaController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        $denuncia = Denuncia::create($request->all());
+        //$denuncia = Denuncia::create($request->all());
 
-        return $denuncia;
+        //return $denuncia;
+
+        $name = $request->file('photo')->getClientOriginalName();
+
+        Mail::to('kuamatzin@gmail.com')->send(new TestMail($entrada));
     }
 
     /**
@@ -91,10 +95,6 @@ class DenunciaController extends Controller
 
     public function image(Request $request)
     {
-        $file = Request::file('image');
-        $name = $file->getClientOriginalExtension();
-        $apodo = 'kuamatzin';
-
-        Mail::to('kuamatzin@gmail.com')->send(new TestMail($name, $apodo));
+        
     }
 }
