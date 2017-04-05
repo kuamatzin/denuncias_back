@@ -21,4 +21,5 @@ Route::get('hola', function(){
     return "HOLA";
 });
 
+Route::get('denuncias/image', 'DenunciaController@image');
 Route::resource('denuncias', 'DenunciaController');

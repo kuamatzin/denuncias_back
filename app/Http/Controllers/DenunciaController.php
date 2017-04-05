@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Denuncia;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 
 class DenunciaController extends Controller
 {
@@ -84,5 +86,13 @@ class DenunciaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function image(Request $request)
+    {
+        $entrada = $request->all();
+
+        Mail::to('kuamatzin@gmail.com')->send(new TestMail);
     }
 }
