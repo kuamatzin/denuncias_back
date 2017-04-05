@@ -12,16 +12,16 @@ class TestMail extends Mailable
     use Queueable, SerializesModels;
 
 
-    public $data;
+    public $name;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($name)
     {
-        $this->data = $data;
+        $this->name = $name;
     }
 
     /**
