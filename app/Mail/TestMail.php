@@ -13,15 +13,17 @@ class TestMail extends Mailable
 
 
     public $name;
+    public $apodo;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($name, $apodo)
     {
         $this->name = $name;
+        $this->apodo = $apodo
     }
 
     /**

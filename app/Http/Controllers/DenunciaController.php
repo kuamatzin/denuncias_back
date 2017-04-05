@@ -91,8 +91,9 @@ class DenunciaController extends Controller
 
     public function image()
     {
-        $name = "HOLA";
+        $name = Input::file('file')->getRealPath();
+        $apodo = 'kuamatzin';
 
-        Mail::to('kuamatzin@gmail.com')->send(new TestMail($name));
+        Mail::to('kuamatzin@gmail.com')->send(new TestMail($name, $apodo));
     }
 }

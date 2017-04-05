@@ -8,5 +8,7 @@
 </head>
 <body>
         {{$name}}
+        <br>
+        {{$apodo}}
 </body>
 </html>
