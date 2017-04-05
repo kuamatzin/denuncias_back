@@ -20,10 +20,10 @@ class TestMail extends Mailable
      *
      * @return void
      */
-    public function __construct($name, $apodo)
+    public function __construct($name)
     {
         $this->name = $name;
-        $this->apodo = $apodo
+        $this->apodo = "HOLA";
     }
 
     /**
