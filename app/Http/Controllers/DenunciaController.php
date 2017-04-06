@@ -103,7 +103,7 @@ class DenunciaController extends Controller
 
             $name = $request->file('image')->store('images');
 
-            $nombre  = $request->nombre;
+            $denuncia = Denuncia::create($request->all());
 
             Mail::to('kuamatzin@gmail.com')->send(new TestMail($nombre));
         }
