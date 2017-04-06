@@ -39,9 +39,8 @@
                                                                 <td>{{$denuncia->nombre}}</td>
                                                                 <td>{{$denuncia->apellidos}}</td>
                                                                 <td>{{$denuncia->email}}</td>
-                                                                <td>{{$denuncia->imagenes[0]}}</td>
                                                                 <td>
-                                                                        <img src="{{$denuncia->imagenes[0]}}" width="100px" alt="">
+                                                                        <img src="{{storage_path('app/public') . '/' . $denuncia->imagenes[0]}}" width="100px" alt="">
                                                                 </td>
                                                         </tr>
                                                 @endforeach
