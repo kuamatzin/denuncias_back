@@ -113,7 +113,7 @@ class DenunciaController extends Controller
             $path = $request->file('image')->store('images');
 
             $denuncia = new Denuncia;
-            $denuncia->anonima = "HOLA";
+            $denuncia->anonima = true;
             $denuncia->nombre_denuncia = "HOLA";
             $denuncia->descripcion = "HOLA";
             $denuncia->nombre = "HOLA";
