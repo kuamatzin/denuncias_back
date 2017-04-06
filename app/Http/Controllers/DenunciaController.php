@@ -103,7 +103,9 @@ class DenunciaController extends Controller
 
             $name = $request->file('image')->store('images');
 
-            Mail::to('kuamatzin@gmail.com')->send(new TestMail($name));
+            $nombre  = $request->nombre;
+
+            Mail::to('kuamatzin@gmail.com')->send(new TestMail($nombre));
         }
         
         else {
