@@ -40,7 +40,7 @@
                                                                 <td>{{$denuncia->apellidos}}</td>
                                                                 <td>{{$denuncia->email}}</td>
                                                                 <td>
-                                                                        <img src="images/{{$denuncia->imagenes[0]}}" width="100px" alt="">
+                                                                        <img src="{{$denuncia->imagenes[0]}}" width="100px" alt="">
                                                                 </td>
                                                         </tr>
                                                 @endforeach
