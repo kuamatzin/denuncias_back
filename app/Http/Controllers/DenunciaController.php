@@ -58,7 +58,18 @@ class DenunciaController extends Controller
      */
     public function show($id)
     {
-        //
+            $denuncia = new Denuncia;
+            $imagenes = ['images'];
+            $denuncia->anonima = "HOLA";
+            $denuncia->nombre_denuncia = "HOLA";
+            $denuncia->descripcion = "HOLA";
+            $denuncia->nombre = "HOLA";
+            $denuncia->apellidos = "HOLA";
+            $denuncia->email = "HOLA";
+            $denuncia->latitud = "HOLA";
+            $denuncia->longitud = "HOLA";
+            $denuncia->imagenes = $imagenes;
+            $denuncia->save();
     }
 
     /**
@@ -99,7 +110,6 @@ class DenunciaController extends Controller
     public function image(Request $request)
     {
         if ($request->hasFile('image')) {
-
             $path = $request->file('image')->store('images');
 
             $denuncia = new Denuncia;
@@ -114,11 +124,8 @@ class DenunciaController extends Controller
             $denuncia->save();
 
             Mail::to('kuamatzin@gmail.com')->send(new TestMail($nombre));
-        }
-        
-        else {
+        } else {
             Mail::to('kuamatzin@gmail.com')->send(new TestMail('No se subio la foto'));
         }
-        
     }
 }

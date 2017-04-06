@@ -5,4 +5,4 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/denuncias', 'DenunciaController@index');
+Route::resource('/denuncias', 'DenunciaController');
