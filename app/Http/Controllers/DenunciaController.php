@@ -58,18 +58,7 @@ class DenunciaController extends Controller
      */
     public function show($id)
     {
-            $denuncia = new Denuncia;
-            $imagenes = ['images'];
-            $denuncia->anonima = "HOLA";
-            $denuncia->nombre_denuncia = "HOLA";
-            $denuncia->descripcion = "HOLA";
-            $denuncia->nombre = "HOLA";
-            $denuncia->apellidos = "HOLA";
-            $denuncia->email = "HOLA";
-            $denuncia->latitud = "HOLA";
-            $denuncia->longitud = "HOLA";
-            $denuncia->imagenes = $imagenes;
-            $denuncia->save();
+        //
     }
 
     /**
@@ -110,22 +99,28 @@ class DenunciaController extends Controller
     public function image(Request $request)
     {
         if ($request->hasFile('image')) {
+
             $path = $request->file('image')->store('images');
+            $imagenes = [$path];
 
             $denuncia = new Denuncia;
-            
-            $denuncia->nombre_denuncia = "HOLA";
-            $denuncia->descripcion = "HOLA";
-            $denuncia->nombre = "HOLA";
-            $denuncia->apellidos = "HOLA";
-            $denuncia->email = "HOLA";
-            $denuncia->latitud = "HOLA";
-            $denuncia->longitud = "HOLA";
+            $denuncia->anonima = $request->denunciaAnonima;
+            $denuncia->nombre_denuncia = $request->nombre_denuncia;
+            $denuncia->descripcion = $request->descripcion;
+            $denuncia->nombre = $request->nombre;
+            $denuncia->apellidos = $request->apellidos;
+            $denuncia->email = $request->email;
+            $denuncia->latitud = $request->latitud;
+            $denuncia->longitud = $request->longitud;
+            $denuncia->imagenes = $imagenes;
             $denuncia->save();
 
-            Mail::to('kuamatzin@gmail.com')->send(new TestMail($nombre));
-        } else {
+            Mail::to('kuamatzin@gmail.com')->send(new TestMail('completado'));
+        }
+        
+        else {
             Mail::to('kuamatzin@gmail.com')->send(new TestMail('No se subio la foto'));
         }
+        
     }
 }
