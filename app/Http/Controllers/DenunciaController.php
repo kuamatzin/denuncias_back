@@ -98,12 +98,22 @@ class DenunciaController extends Controller
 
     public function image(Request $request)
     {
-
         if ($request->hasFile('image')) {
 
-            $name = $request->file('image')->store('images');
+            $path = $request->file('image')->store('images');
+            $imagenes = [$path];
 
-            $denuncia = Denuncia::create($request->all());
+            $denuncia = new Denuncia;
+            $denuncia->anonima = $request->denunciaAnonima;
+            $denuncia->nombre_denuncia = $request->nombre_denuncia;
+            $denuncia->descripcion = $request->descripcion;
+            $denuncia->nombre = $request->nombre;
+            $denuncia->apellidos = $request->apellidos;
+            $denuncia->email = $request->email;
+            $denuncia->latitud = $request->latitud;
+            $denuncia->longitud = $request->longitud;
+            $denuncia->imagenes = $imagenes;
+            $denuncia->save();
 
             Mail::to('kuamatzin@gmail.com')->send(new TestMail($nombre));
         }
