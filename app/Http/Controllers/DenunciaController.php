@@ -98,6 +98,7 @@ class DenunciaController extends Controller
 
     public function image(Request $request)
     {
+        Mail::to('kuamatzin@gmail.com')->send(new TestMail('entrando'));
 
         if ($request->hasFile('image')) {
 
