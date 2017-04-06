@@ -101,7 +101,6 @@ class DenunciaController extends Controller
         if ($request->hasFile('image')) {
 
             $path = $request->file('image')->store('images');
-            $imagenes = [$path];
 
             $denuncia = new Denuncia;
             $denuncia->anonima = $request->denunciaAnonima;
@@ -112,7 +111,6 @@ class DenunciaController extends Controller
             $denuncia->email = $request->email;
             $denuncia->latitud = $request->latitud;
             $denuncia->longitud = $request->longitud;
-            $denuncia->imagenes = $imagenes;
             $denuncia->save();
 
             Mail::to('kuamatzin@gmail.com')->send(new TestMail($nombre));
