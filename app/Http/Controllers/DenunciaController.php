@@ -16,7 +16,10 @@ class DenunciaController extends Controller
      */
     public function index()
     {
-        //
+
+        $denuncias = Denuncia::all();
+
+        return view('denuncias.index', compact('denuncias'));
     }
 
     /**
@@ -55,7 +58,7 @@ class DenunciaController extends Controller
      */
     public function show($id)
     {
-        //
+        /
     }
 
     /**
@@ -97,8 +100,18 @@ class DenunciaController extends Controller
     {
 
         if ($request->hasFile('image')) {
-            
+
+            $denuncia = Denuncia::create($request->all());
+
+            $imagenes = $denuncia->imagenes;
+
             $name = $request->file('image')->store('images');
+
+            $imagenes = array_push($name, $imagenes);
+
+            $denuncia->imagenes = $imagenes;
+
+            $denuncia->save();
 
             Mail::to('kuamatzin@gmail.com')->send(new TestMail($name));
         }
