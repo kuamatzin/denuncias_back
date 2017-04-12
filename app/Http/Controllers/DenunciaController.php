@@ -121,6 +121,8 @@ class DenunciaController extends Controller
         else {
             Mail::to('kuamatzin@gmail.com')->send(new TestMail('No se subio la foto'));
         }
+
+        return $denuncia->id;
         
     }
 }
