@@ -113,6 +113,8 @@ class DenunciaController extends Controller
             $denuncia->email = $request->email;
             $denuncia->latitud = $request->latitud;
             $denuncia->longitud = $request->longitud;
+            $denuncia->imagenes = [];
+            $denuncia->videos = [];
         }
 
         if ($request->hasFile('image')) {
