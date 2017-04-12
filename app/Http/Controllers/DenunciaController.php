@@ -100,7 +100,7 @@ class DenunciaController extends Controller
     {
         $denuncia = $request->denuncia_id != 'new' ? Denuncia::findOrFail($request->denuncia_id) : new Denuncia;
         $imagenes = $denuncia->imagenes != null ? $denuncia->imagenes : [];
-        $videos = $denuncia->videos != null ? $denuncia->videos : [];
+        //$videos = $denuncia->videos != null ? $denuncia->videos : [];
 
         if($request->denuncia_id == 'new') {
             $denuncia->anonima = $request->denunciaAnonima;
