@@ -102,7 +102,7 @@ class DenunciaController extends Controller
     {
         $denuncia = $request->denuncia_id != 'new' ? Denuncia::findOrFail($request->denuncia_id) : new Denuncia;
         $imagenes = $denuncia->imagenes != null ? $denuncia->imagenes : [];
-        //$videos = $denuncia->videos != null ? $denuncia->videos : [];
+        $videos = $denuncia->videos != null ? $denuncia->videos : [];
 
         if($request->denuncia_id == 'new') {
             $denuncia->anonima = $request->denunciaAnonima;
@@ -118,11 +118,14 @@ class DenunciaController extends Controller
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images');
             array_push($imagenes, $path);
-
             $denuncia->imagenes = $imagenes;
-            Mail::to('kuamatzin@gmail.com')->send(new TestMail('completado'));
-        } else {
-            Mail::to('kuamatzin@gmail.com')->send(new TestMail('No se subio la foto'));
+            //Mail::to('kuamatzin@gmail.com')->send(new TestMail('completado'));
+        }
+
+        if ($request->hasFile('video')) {
+            $path = $request->file('video')->store('videos');
+            array_push($videos, $path);
+            $denuncia->videos = $videos;
         }
 
         $denuncia->save();
