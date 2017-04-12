@@ -58,7 +58,9 @@ class DenunciaController extends Controller
      */
     public function show($id)
     {
-        //
+       $denuncia = Denuncia::findOrFail($id);
+
+       return view('denuncias.index', compact('denuncia'));
     }
 
     /**

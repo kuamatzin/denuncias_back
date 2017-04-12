@@ -40,7 +40,7 @@
                                                                 <td>{{$denuncia->apellidos}}</td>
                                                                 <td>{{$denuncia->email}}</td>
                                                                 <td>
-                                                                        <img src="storage/{{$denuncia->imagenes[0]}}" width="100px" alt="">
+                                                                        <a href="/denuncias/{{$denuncia->id}}" class="btn btn-primary">Ver imágenes</a>
                                                                 </td>
                                                         </tr>
                                                 @endforeach
