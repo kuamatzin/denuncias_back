@@ -111,12 +111,12 @@ class DenunciaController extends Controller
             $denuncia->email = $request->email;
             $denuncia->latitud = $request->latitud;
             $denuncia->longitud = $request->longitud;
-            $denuncia->imagenes = $imagenes;
         }
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images');
             $imagenes = array_add($path, $iamges);
+            $denuncia->imagenes = $imagenes;
             Mail::to('kuamatzin@gmail.com')->send(new TestMail('completado'));
         } else {
             Mail::to('kuamatzin@gmail.com')->send(new TestMail('No se subio la foto'));
