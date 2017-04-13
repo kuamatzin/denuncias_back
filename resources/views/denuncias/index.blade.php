@@ -3,30 +3,12 @@
 @section('content')
         <div class="container">
                 <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-10 col-md-offset-1">
                                 <table class="table">
                                         <thead>
                                                 <tr>
                                                         <th>Nombre Denuncia</th>
                                                         <th>Descripción</th>
-                                                        <th></th>
-                                                </tr>
-                                        </thead>
-                                        <tbody>
-                                                @foreach($denuncias as $denuncia)
-                                                        <tr>
-                                                                <td>{{$denuncia->nombre_denuncia}}</td>
-                                                                <td>{{$denuncia->descripcion}}</td>
-                                                        </tr>
-                                                @endforeach
-                                        </tbody>
-                                </table>
-                        </div>
-
-                        <div class="col-md-6">
-                                <table class="table">
-                                        <thead>
-                                                <tr>
                                                         <th>Nombre</th>
                                                         <th>Apellidos</th>
                                                         <th>Email</th>
@@ -36,6 +18,8 @@
                                         <tbody>
                                                 @foreach($denuncias as $denuncia)
                                                         <tr>
+                                                                <td>{{$denuncia->nombre_denuncia}}</td>
+                                                                <td>{{$denuncia->descripcion}}</td>
                                                                 <td>{{$denuncia->nombre}}</td>
                                                                 <td>{{$denuncia->apellidos}}</td>
                                                                 <td>{{$denuncia->email}}</td>
