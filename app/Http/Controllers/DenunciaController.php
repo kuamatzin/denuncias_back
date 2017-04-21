@@ -110,7 +110,7 @@ class DenunciaController extends Controller
         $videos = $denuncia->videos != null ? $denuncia->videos : [];
 
         if($request->denuncia_id == 'new') {
-            $denuncia->anonima = $request->denunciaAnonima;
+            $denuncia->anonima = $request->denunciaAnonima == null ? '': $request->denunciaAnonima;
             $denuncia->nombre_denuncia = $request->nombre_denuncia;
             $denuncia->descripcion = $request->descripcion;
             $denuncia->nombre = $request->nombre;
