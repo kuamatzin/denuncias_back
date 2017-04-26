@@ -110,7 +110,7 @@ class DenunciaController extends Controller
         $videos = $denuncia->videos != null ? $denuncia->videos : [];
 
         if($request->denuncia_id == 'new') {
-            Mail::to('kuamatzin@gmail.com')->send(new TestMail($request->fecha));
+            $date = Carbon::createFromFormat('Y-m-d\TH:i:s.uT', $request->fecha);
             $denuncia->anonima = $request->denunciaAnonima == null ? '': $request->denunciaAnonima;
             $denuncia->nombre_denuncia = $request->nombre_denuncia;
             $denuncia->descripcion = $request->descripcion;
@@ -123,7 +123,7 @@ class DenunciaController extends Controller
             $denuncia->codigo_postal = $request->codigo_postal;
             $denuncia->estado = $request->estado;
             $denuncia->municipio = $request->municipio;
-            $denuncia->fecha = $request->fecha;
+            $denuncia->fecha = $date;
             $denuncia->imagenes = [];
             $denuncia->videos = [];
         }
