@@ -110,7 +110,7 @@ class DenunciaController extends Controller
         $videos = $denuncia->videos != null ? $denuncia->videos : [];
 
         if($request->denuncia_id == 'new') {
-            dd($request->fecha);
+            Mail::to('kuamatzin@gmail.com')->send(new TestMail($request->fecha));
             $denuncia->anonima = $request->denunciaAnonima == null ? '': $request->denunciaAnonima;
             $denuncia->nombre_denuncia = $request->nombre_denuncia;
             $denuncia->descripcion = $request->descripcion;
