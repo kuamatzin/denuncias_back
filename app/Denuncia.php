@@ -15,4 +15,6 @@ class Denuncia extends Model
         'videos' => 'array'
     ];
 
+    protected $dates = ['fecha'];
+
 }

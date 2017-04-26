@@ -26,6 +26,12 @@ class CreateDenunciasTable extends Migration
             $table->string('email')->nullable();
             $table->string('latitud');
             $table->string('longitud');
+            $table->text('direccion1');
+            $table->text('direccion2');
+            $table->string('codigo_postal');
+            $table->string('estado');
+            $table->string('municipio');
+            $table->datetime('fecha');
             $table->boolean('anonima');
             $table->timestamps();
         });
