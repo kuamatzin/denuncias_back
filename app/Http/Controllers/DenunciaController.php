@@ -125,6 +125,7 @@ class DenunciaController extends Controller
             $denuncia->codigo_postal = $request->codigo_postal;
             $denuncia->estado = $request->estado;
             $denuncia->municipio = $request->municipio;
+            $denuncia->fecha = $date;
             $denuncia->imagenes = [];
             $denuncia->videos = [];
         }
