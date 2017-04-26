@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Denuncia;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DenunciaController extends Controller
 {
