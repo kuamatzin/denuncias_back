@@ -119,6 +119,7 @@ class DenunciaController extends Controller
             $denuncia->apellidos = $request->apellidos;
             $denuncia->email = $request->email;
             $denuncia->latitud = $request->latitud;
+            $denuncia->latitud = $request->longitud;
             $denuncia->direccion1 = $request->direccion1;
             $denuncia->direccion2 = $request->direccion2;
             $denuncia->codigo_postal = $request->codigo_postal;
